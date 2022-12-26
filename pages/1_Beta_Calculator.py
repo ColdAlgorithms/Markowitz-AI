@@ -42,13 +42,6 @@ with UserInput:
     secCol._text_input("Ticker", choosenTicker, disabled=True)
     endDate = secCol.date_input("Pick an end date", min_value= startDate, max_value= datetime.datetime.now ())
 
-st.experimental_set_query_params()
-{"selected": choosenStock}
-
-if 'key' not in st.session_state:
-    st.session_state['key'] = choosenStock
-st.write(st.session_state.key)
-
 with dataset:
 
     # Calculates daily return of the selected stock share
