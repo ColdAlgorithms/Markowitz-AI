@@ -251,8 +251,7 @@ with simulation:
         fig, ax = plt.subplots()
         ax.set_title('Efficient Frontiers Between Assets')
         for i in optimal.index:
-            plt.scatter(portfolios[portfolios['Asset 1'] == i[0]][portfolios['Asset 2'] == i[1]].Volatility,
-                        portfolios[portfolios['Asset 1'] == i[0]][portfolios['Asset 2'] == i[1]]['Annual Return'], color='tab:orange', s=0.1)
+            plt.scatter(portfolios.loc[portfolios['Asset 1'] ==i[0]].loc[portfolios['Asset 2'] ==i[1]].Volatility, portfolios.loc[portfolios['Asset 1'] ==i[0]].loc[portfolios['Asset 2'] ==i[1]]['Annual Return'], color='tab:orange', s=0.1)
         plt.scatter(0, rf, marker="x")
         plt.scatter(optimal.volatility,
                     optimal['expected return'], color='tab:red', marker="*")
