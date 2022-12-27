@@ -13,7 +13,6 @@ st.set_page_config(
     page_icon="💰",
 )
 
-
 header = st.container()
 params = st.container()
 userInput = st.container()
@@ -31,7 +30,6 @@ with header:
 
 with params:
     marketOptions = ["S&P 500 Index", "NASDAQ-100 Index", "Russell 1000 Index"]
-
 
 with userInput:
     st.markdown("Please Provide Information Needed")
@@ -91,7 +89,7 @@ with dataset:
     # annualReturnList["AAPL"] or annualReturnList[0] to call variable
     annualReturnList = returnRates.mean()*250
     stdList = np.std(returnRates)
-    meanList = np.mean(returnRates)
+    meanList = returnRates.mean()
 
 with lineChart:
     st.header("Line Charts")
