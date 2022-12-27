@@ -294,5 +294,11 @@ with simulation:
             index.append((i[0], i[1], "3 months T-bill"))
             portfolioWeights.append(row)
         st.subheader("Optimal Portfolios")
-        optimalData = DataFrame(np.array(portfolioWeights), columns = ['Weight 1', 'Weight 2', 'Weight 3'], index = index)
-        st.table(optimalData)
+        try:
+            optimalData = DataFrame(np.array(portfolioWeights), columns = ['Weight 1', 'Weight 2', 'Weight 3'], index = index)
+            st.table(optimalData)
+        except ValueError:
+            if len(choosenStockList) == 0:
+                st.write("Please choose stocks!")
+            else:
+                st.write("Please choose another stock!")
