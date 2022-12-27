@@ -96,5 +96,6 @@ with results:
         # st.write(f"* **the Variance of the Return on Market**: {varReturnMarket:.3f}")
         # st.write(f"* the Variance of the Return on Stock has been calculated as {covarReturnStock:.3f}")
       
-        st.metric(label="**Beta variable**", value=beta.round(3))
-        st.metric(label="**Alpha variable**", value=alpha.round(3))
+        firstCol, secCol = st.columns(2)
+        firstCol.metric(label="**Beta variable**", value=beta.round(3))
+        secCol.metric(label="**Alpha variable**", value=alpha.round(3))
