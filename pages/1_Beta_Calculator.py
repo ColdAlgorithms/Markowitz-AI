@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd
+from pandas import DataFrame
 from numpy import square, mean
 import yahoo_fin.stock_info as si
 import datetime
@@ -72,7 +72,7 @@ with results:
         n = dfs.shape[0] - 1
         # Defines the table of Decomposition of Returns for the Single-Index Model
         returnsTable = {'Index': index, 'Return on Stock': dfs["daily return"], 'Return on Market': dfm["daily return"]}
-        returnsTableDf = pd.DataFrame(data=returnsTable)
+        returnsTableDf = DataFrame(data=returnsTable)
         # save button ile kullanıcıya kaydetme imkanı verilmeli. returnsTableDf.to_csv(path)
         st.write(returnsTableDf[1:])
         st.markdown("The historical data is feed via Yahoo Finance.")
