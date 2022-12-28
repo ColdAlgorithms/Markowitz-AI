@@ -2,7 +2,7 @@ import streamlit as st
 from pandas import DataFrame
 from numpy import square, mean
 import yahoo_fin.stock_info as si
-import datetime
+from datetime import datetime
 import matplotlib.pyplot as plt 
 
 st.set_page_config(
@@ -36,11 +36,11 @@ with UserInput:
     # Displays ticker name of the selected stock
     choosenTicker = stockDict[choosenStock]
     # Assigns one year ago as default beginning date
-    defaultBegDate= datetime.datetime(datetime.datetime.now().year-1, datetime.datetime.now().month, datetime.datetime.now().day)
+    defaultBegDate= datetime(datetime.now().year-1, datetime.now().month, datetime.now().day)
     # Calender components for user's date entry
-    startDate = firstCol.date_input("Pick a start date ",value= defaultBegDate, max_value= datetime.datetime.now ())
+    startDate = firstCol.date_input("Pick a start date ",value= defaultBegDate, max_value= datetime.now ())
     secCol._text_input("Ticker", choosenTicker, disabled=True)
-    endDate = secCol.date_input("Pick an end date", min_value= startDate, max_value= datetime.datetime.now ())
+    endDate = secCol.date_input("Pick an end date", min_value= startDate, max_value= datetime.now ())
 
 with dataset:
 
